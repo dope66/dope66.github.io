@@ -150,16 +150,15 @@
         }
 
         .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .tech-item {
             background: #16213e;
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
-            /* text-align: center; */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             border: 1px solid #2d3748;
@@ -176,7 +175,6 @@
             height: 60px;
             background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
             border-radius: 12px;
-            margin: 0 auto 15px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -190,8 +188,7 @@
             object-fit: contain; 
         }
         .tech-name {
-            font-weight: 600;
-            color: #ccd6f6;
+            display: none;
         }
 
         hr {
