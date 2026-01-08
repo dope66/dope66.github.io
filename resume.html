@@ -1,1 +1,532 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HyunWoo Portfolio 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0f0f1e;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            flex-direction: column;
+        }
+
+        #hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .last-update {
+            font-size: 1rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        /* Intro Section */
+        #intro {
+            background: #1a1a2e;
+            min-height: auto; 
+        }
+
+        .intro-content {
+            margin-bottom: 80px;
+        }
+
+        .intro-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #64ffda;
+        }
+
+        .callout {
+            background: #16213e;
+            border-left: 4px solid #64ffda;
+            padding: 20px 30px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            border-radius: 4px;
+            color: #ccd6f6;
+        }
+
+        /* Experience Section (now part of intro) */
+        .experience-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            /* text-align: center; */
+            color: #64ffda;
+        }
+
+        /* .experience-list {
+            max-width: 800px;
+            margin: 0 auto;
+        } */
+
+        .experience-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ccd6f6;
+        }
+
+        .experience-date {
+            font-weight: 600;
+            color: #64ffda;
+            font-size: 0.95rem;
+        }
+
+        .experience-desc {
+            color: #8892b0;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Tech Stack Section */
+        #tech-stack {
+            background: #1a1a2e;
+        }
+
+        .tech-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            /* text-align: center; */
+            color: #64ffda;
+        }
+
+        .tech-category {
+            margin-bottom: 50px;
+        }
+
+        .tech-category h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #64ffda;
+            padding-left: 20px;
+            border-left: 4px solid #64ffda;
+        }
+
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tech-item {
+            background: #16213e;
+            padding: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #2d3748;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(100, 255, 218, 0.2);
+            border-color: #64ffda;
+        }
+
+        .tech-icon {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #64ffda;
+            border: 1px solid #2d3748;
+        }
+        .tech-icon img{
+            width: 150px;
+            height: 150px;
+            object-fit: contain; 
+        }
+        .tech-name {
+            display: none;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #64ffda, transparent);
+            margin: 60px 0;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: #0f0f1e;
+        }
+
+        .projects-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            /* text-align: center; */
+            color: #64ffda;
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+        }
+
+        .project-title-section h3 {
+            font-size: 2rem;
+            color: #ccd6f6;
+            margin-bottom: 15px;
+        }
+
+        .project-period {
+            color: #64ffda;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: #16213e;
+            color: #64ffda;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #2d3748;
+        }
+
+        .project-desc-section {
+            padding-left: 50px;
+            border-left: 3px solid #64ffda;
+        }
+
+        .project-desc-section p {
+            color: #8892b0;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .project-achievements {
+            list-style: none;
+        }
+
+        .project-achievements li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            color: #8892b0;
+        }
+
+        .project-achievements li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+      @media print {
+  body {
+    font-size: 11pt;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+
+  h2 {
+    page-break-after: avoid;
+  }
+}
+
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .project-item {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .project-desc-section {
+                border-left: none;
+                border-top: 3px solid #64ffda;
+                padding-left: 0;
+                padding-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>안녕하세요 김현우 입니다</h1>
+        <p class="last-update">Last updated: 2025.12.14</p>
+    </section>
+
+    <!-- Intro & Experience Section (Combined) -->
+    <section id="intro" style="">
+        <div class="container">
+            <div class="intro-content">
+                <h2>김현우</h2>
+                <div class="callout">
+                    기술로 실제 문제를 해결하는 데 보람을 느끼며, 항상 "왜?"를 고민하며 더 나은 방향으로 개선하는 개발자를 지향합니다.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech-stack">
+        <div class="container">
+            <div class="tech-content">
+                <h2>이만큼 노력하고 있습니다</h2>
+                
+                <div class="tech-category">
+                    <h3>꽤 친한 사이</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                           <div class="tech-icon"><img src="/image/java.png" alt="Java 아이콘"></div>
+                            <div class="tech-name">Java</div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"><img src="/image/springboot.png" alt="Springboot 아이콘"></div>
+                            <div class="tech-name">Spring Boot</div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"><img src="/image/mysql.png" alt="Mysql 아이콘"></div>
+                            <div class="tech-name">MySQL</div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"><img src="/image/git.png" alt="Git 아이콘"></div>
+                            <div class="tech-name">Git</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tech-category">
+                    <h3>점점 친해지고 있는 사이</h3>
+                    <div class="tech-grid">
+
+                        <div class="tech-item">
+                           <div class="tech-icon"><img src="/image/redis.png" alt="Redis 아이콘"></div>
+                            <div class="tech-name">Redis</div>
+                        </div>
+                        <div class="tech-item">
+                           <div class="tech-icon"><img src="/image/react.png" alt="React 아이콘"></div>
+                            <div class="tech-name">React</div>
+                        </div>
+                        <div class="tech-item">
+                           <div class="tech-icon"><img src="/image/jpa.png" alt="JPA 아이콘"></div>
+                        <div class="tech-name">JPA</div>
+                        </div>
+                        <div class="tech-item">
+                           <div class="tech-icon"><img src="/image/docker.png" alt="Docker 아이콘"></div>
+                        <div class="tech-name">Docker</div>
+                        </div>     
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>친해지고 싶은 사이</h3>
+                     <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-icon"><img src="/image/python.png" alt="Python 아이콘"></div>
+                            <div class="tech-name">Python</div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"><img src="/image/aws.png" alt="AWS 아이콘"></div>
+                            <div class="tech-name">AWS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>도움을 많이 받는 사이</h3>
+                     <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-icon"><img src="/image/intellij.png" alt="Intellij  아이콘"></div>
+                            <div class="tech-name">Intellij </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"><img src="/image/jenkins.png" alt="Jenkins 아이콘"></div>
+                            <div class="tech-name">Jenkins</div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"><img src="/image/jira.png" alt="Jira 아이콘"></div>
+                            <div class="tech-name">Jira</div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"><img src="/image/github.png" alt="Github 아이콘"></div>
+                            <div class="tech-name">Github</div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="projects-content">
+                <h2>다양한 경험</h2>
+
+                <div class="project-item">
+                    <div class="project-title-section">
+                        <h3>보험 청구 자동화 시스템</h3>
+                        <p class="project-period">2025.06 - 2025.07</p>
+                        <div class="project-tags">
+                            <span class="tag">Java 8</span>
+                            <span class="tag">Spring</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">LLaMA</span>
+                            <span class="tag">OCR</span>
+                            <span class="tag">Redis</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="project-desc-section">
+                        <p>
+                            건당 6~8분 소요되는 보험 청구 프로세스를 AI와 자동화 기술로 혁신했습니다. 
+                            OCR 기반 문서 분류 시스템과 LLaMA 기반 심사 메모 자동 생성 엔진을 구축하여 업무 효율을 극대화했습니다.
+                        </p>
+                        <ul class="project-achievements">
+                            <li>문서 분류 시간 80% 단축 (15초 → 3초)</li>
+                            <li>심사 메모 작성 시간 98.75% 단축 (4분 → 3초)</li>
+                            <li>사용자 응답 시간 97.5% 개선 (40초 → 1초 미만)</li>
+                            <li>일일 업무 효율화 (50건 기준 3시간 27분 절약)</li>
+                            <li>AI 모델 비용 최적화로 연간 수백만 원 규모 절감</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title-section">
+                        <h3>웹 콘텐츠 저장 서비스 보안 강화</h3>
+                        <p class="project-period">2025.05 - 2025.06</p>
+                        <div class="project-tags">
+                            <span class="tag">Java 17</span>
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">Spring Security</span>
+                            <span class="tag">Redis</span>
+                            <span class="tag">Chart.js</span>
+                        </div>
+                    </div>
+                    <div class="project-desc-section">
+                        <p>
+                            계정 도용 및 무차별 로그인 시도로부터 서비스를 보호하기 위해 다층 보안 시스템을 구축했습니다. 
+                            Redis 기반 인증 시스템과 Spring Security 로그인 필터로 실시간 위협 탐지 체계를 완성했습니다.
+                        </p>
+                        <ul class="project-achievements">
+                            <li>Redis 기반 인증으로 미인증 사용자 접근 100% 차단</li>
+                            <li>IP 기반 자동 차단으로 무차별 대입 공격 실시간 대응</li>
+                            <li>국가·User-Agent·IP 시각화로 관리자 모니터링 효율 극대화</li>
+                            <li>인증 시스템 통합으로 기존 대비 보안 수준 강화</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title-section">
+                        <h3>SNS 기반 질병 정보 수집 시스템</h3>
+                        <p class="project-period">2023.08 - 2025.10</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">Selenium</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="project-desc-section">
+                        <p>
+                            SNS에 분산된 질병 정보를 AI로 수집하고 검증하여 신뢰도 높은 데이터를 확보했습니다. 
+                            Selenium 기반 크롤링 엔진과 Flask API 서버를 구축하여 질병 발병 트렌드 분석 기반을 마련했습니다.
+                        </p>
+                        <ul class="project-achievements">
+                            <li>연도별 필터링으로 특정 기간 질병 정보 정확도 향상</li>
+                            <li>해시 기반 중복 제거로 중복 게시물 90% 이상 자동 필터링</li>
+                            <li>자동 날짜 정규화로 질병 발병 트렌드 분석 기반 마련</li>
+                            <li>크롤링 성공률 90% 이상 유지</li>
+                            <li>6개월간 3,000건 이상 질병 정보 데이터 확보</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
